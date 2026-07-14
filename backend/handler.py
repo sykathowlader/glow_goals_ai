@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from providers.gemini_provider import GeminiProvider
+from tools import PRODUCT_TOOLS, execute_tool
 
 provider = GeminiProvider()
 
@@ -21,11 +22,11 @@ def handler(event, context):
     if not message:
         return {"statusCode": 400, "body": json.dumps({"error": "message is required"})}
 
-    reply = provider.generate_response(message)
+    reply = provider.generate_response(message, tools=PRODUCT_TOOLS, execute_tool=execute_tool)
     return {"statusCode": 200, "body": json.dumps({"reply": reply})}
 
 
 if __name__ == "__main__":
-    fake_event = {"body": json.dumps({"message": "What is niacinamide?"})}
+    fake_event = {"body": json.dumps({"message": "Do you have anything with snail mucin?"})}
     result = handler(fake_event, None)
     print(result)

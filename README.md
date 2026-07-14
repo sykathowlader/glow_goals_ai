@@ -11,7 +11,8 @@ current status of every milestone.
 
 ## Status
 
-🚧 **Milestone 2 of 8 — Local Gemini chat loop working.** No tools, Shopify, or frontend yet.
+🚧 **Milestone 3 of 8 — Product recommendations grounded in the real Shopify catalog.** No
+knowledge base, intent routing, or frontend yet.
 
 ## Architecture (target, built incrementally)
 
@@ -55,7 +56,9 @@ glow_goals_ai/
     ├── handler.py             — Lambda-shaped entry point (chat request in, chat reply out)
     ├── providers/
     │   ├── base.py            — the AIProvider interface every LLM provider implements
-    │   └── gemini_provider.py — Gemini implementation of that interface
+    │   └── gemini_provider.py — Gemini implementation, including the tool-calling loop
+    ├── shopify_client.py      — OAuth token exchange + real Shopify product search
+    ├── tools.py               — the search_products tool definition + dispatcher
     ├── requirements.txt
-    └── .env.example           — template for local secrets (GEMINI_API_KEY, GEMINI_MODEL)
+    └── .env.example           — template for local secrets (Gemini + Shopify credentials)
 ```
