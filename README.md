@@ -11,7 +11,7 @@ current status of every milestone.
 
 ## Status
 
-🚧 **Milestone 1 of 8 — Project scaffolding.** No backend or frontend code yet.
+🚧 **Milestone 2 of 8 — Local Gemini chat loop working.** No tools, Shopify, or frontend yet.
 
 ## Architecture (target, built incrementally)
 
@@ -20,11 +20,12 @@ Customer
    │
 React Chat Widget (standalone, embeddable)
    │
-Backend API (FastAPI locally → AWS Lambda + API Gateway later)
+Backend API (a plain Lambda-style handler function, run locally and later deployed behind
+AWS API Gateway + Lambda directly — no web framework in between)
    │
 AI Orchestration Layer
    │
-   ├── Claude (LLM, behind a swappable provider interface)
+   ├── Gemini (LLM, behind a swappable provider interface)
    ├── Tools: search_products, search_knowledge, ... (Shopify Admin API + local knowledge base)
    └── Simple RAG over a small skincare knowledge base (ingredients, routines, FAQ)
 ```
@@ -36,7 +37,7 @@ Design principles carried over from the original architecture spec:
 - **Knowledge separation** — commerce data (Shopify), business/store policy info, and general
   skincare education are treated as distinct sources the assistant chooses between.
 - **Provider flexibility** — the LLM is called through an interface, so the underlying model
-  (Claude, and later others) can change without touching application logic.
+  (Gemini first, others later) can change without touching application logic.
 - **Serverless backend** — designed to run on AWS Lambda + API Gateway, no always-on server.
 
 Scope for this build is intentionally trimmed from the original full spec (single LLM provider
@@ -49,5 +50,12 @@ deferred pieces are listed at the bottom of `PROJECT_LOG.md` as future work.
 glow_goals_ai/
 ├── README.md        — this file
 ├── PROJECT_LOG.md    — build log, milestone tracker, and working rules for this project
-└── .gitignore
+├── .gitignore
+└── backend/
+    ├── handler.py             — Lambda-shaped entry point (chat request in, chat reply out)
+    ├── providers/
+    │   ├── base.py            — the AIProvider interface every LLM provider implements
+    │   └── gemini_provider.py — Gemini implementation of that interface
+    ├── requirements.txt
+    └── .env.example           — template for local secrets (GEMINI_API_KEY, GEMINI_MODEL)
 ```
