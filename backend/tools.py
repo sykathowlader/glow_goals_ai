@@ -50,10 +50,40 @@ _search_knowledge_declaration = types.FunctionDeclaration(
     },
 )
 
+_track_order_declaration = types.FunctionDeclaration(
+    name="track_order",
+    description=(
+        "Look up the status of a specific customer order. Requires both the order "
+        "number and the email address used at checkout — only returns details if "
+        "they match the same real order, to protect customer privacy. If the "
+        "customer hasn't given both, ask them for whichever is missing before "
+        "calling this tool. If it returns not found, tell the customer the order "
+        "number and email didn't match rather than guessing why."
+    ),
+    parameters_json_schema={
+        "type": "object",
+        "properties": {
+            "order_number": {
+                "type": "string",
+                "description": "The order number, e.g. '1001' or '#1001'.",
+            },
+            "email": {
+                "type": "string",
+                "description": "The email address used to place the order.",
+            },
+        },
+        "required": ["order_number", "email"],
+    },
+)
+
 # One Tool holding every function the model can choose to call.
 TOOLS = [
     types.Tool(
-        function_declarations=[_search_products_declaration, _search_knowledge_declaration]
+        function_declarations=[
+            _search_products_declaration,
+            _search_knowledge_declaration,
+            _track_order_declaration,
+        ]
     )
 ]
 
@@ -64,4 +94,6 @@ def execute_tool(name: str, args: dict):
         return _shopify.search_products(args["search_term"])
     if name == "search_knowledge":
         return _knowledge_base.search(args["question"])
+    if name == "track_order":
+        return _shopify.track_order(args["order_number"], args["email"])
     raise ValueError(f"Unknown tool: {name}")

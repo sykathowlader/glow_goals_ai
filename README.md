@@ -11,8 +11,9 @@ current status of every milestone.
 
 ## Status
 
-🚧 **Milestone 4 of 8 — Product recommendations and store knowledge (shipping/returns/FAQ), both
-grounded in real data.** No intent routing or frontend yet.
+🚧 **Milestone 5 of 8 — All four request types covered:** product recommendations, store
+knowledge, general skincare education, and order tracking. Intent routing validation and the
+frontend are next.
 
 ## Architecture (target, built incrementally)
 
@@ -28,7 +29,8 @@ AI Orchestration Layer
    │
    ├── Gemini (LLM, behind a swappable provider interface)
    ├── search_products — real Shopify Admin API catalog search
-   └── search_knowledge — simple RAG over real store facts (shipping, returns, brand)
+   ├── search_knowledge — simple RAG over real store facts (shipping, returns, brand)
+   └── track_order — real order lookup, gated on order number + email matching
 ```
 
 General skincare education questions (e.g. "what is niacinamide?") are answered by Gemini
@@ -65,7 +67,7 @@ glow_goals_ai/
     ├── knowledge/
     │   └── store_info.json    — real shipping/returns/brand facts, as retrievable chunks
     ├── knowledge_base.py      — embeds and searches store_info.json (simple RAG, no vector DB)
-    ├── tools.py               — search_products + search_knowledge tool definitions + dispatcher
+    ├── tools.py               — search_products/search_knowledge/track_order tool definitions
     ├── requirements.txt
     └── .env.example           — template for local secrets (Gemini + Shopify credentials)
 ```
