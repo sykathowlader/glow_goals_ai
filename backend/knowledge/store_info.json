@@ -1,0 +1,82 @@
+[
+  {
+    "id": "shipping-uk-standard",
+    "topic": "shipping",
+    "content": "UK Standard Tracked Delivery costs £3.99, or free on orders over £25, and arrives 2-3 working days after dispatch."
+  },
+  {
+    "id": "shipping-uk-express",
+    "topic": "shipping",
+    "content": "UK Express Tracked Delivery costs £7.99 and arrives 1 working day after dispatch."
+  },
+  {
+    "id": "shipping-dispatch-cutoff",
+    "topic": "shipping",
+    "content": "Orders placed before 1pm Monday-Friday are dispatched the same day. Orders placed after 1pm, on weekends, or on public holidays are dispatched the next working day. Glow Goals does not dispatch on weekends or UK bank holidays."
+  },
+  {
+    "id": "shipping-international-eu",
+    "topic": "shipping",
+    "content": "Shipping to Europe costs £9.99, or free on orders over £80, and arrives 3-5 working days after dispatch."
+  },
+  {
+    "id": "shipping-international-row",
+    "topic": "shipping",
+    "content": "Shipping to the rest of the world costs £12.99, or free on orders over £120, and arrives 6-7 working days after dispatch."
+  },
+  {
+    "id": "shipping-customs-and-delays",
+    "topic": "shipping",
+    "content": "Any import taxes or customs duties are the customer's responsibility, not Glow Goals'. Customs clearance, local holidays, or severe weather can affect delivery time beyond the normal estimate. All orders are shipped from Glow Goals' London warehouse with full tracking and SMS/email updates."
+  },
+  {
+    "id": "returns-eligibility",
+    "topic": "returns",
+    "content": "A return must be requested within 14 days of receiving the order, and the item must be shipped back within 14 days of that return being approved. Only items bought directly from glowgoals.co.uk are eligible. Items must be unopened, unused, in original packaging with any hygiene seals intact, and free from damage or signs of use — opened or used items cannot be refunded."
+  },
+  {
+    "id": "returns-non-returnable-items",
+    "topic": "returns",
+    "content": "Gift cards, sale/clearance items, and items marked 'final sale' cannot be returned. If a return would drop the order total below a promotion's minimum spend, any free gift included with that promotion must also be sent back."
+  },
+  {
+    "id": "returns-how-to-request",
+    "topic": "returns",
+    "content": "To request a return, contact Glow Goals through the Contact page with the order number and the reason for the return. Once approved, ship the item back using a tracked delivery service, with the order number included in or on the package."
+  },
+  {
+    "id": "returns-shipping-cost",
+    "topic": "returns",
+    "content": "Return shipping costs are the customer's responsibility and are non-refundable. Glow Goals is not responsible for return parcels lost or damaged in transit."
+  },
+  {
+    "id": "returns-refund-timing",
+    "topic": "returns",
+    "content": "Once a return is received and inspected, an approved refund is processed to the original payment method within 3-5 business days. If the original order qualified for free shipping and the return drops its value below that free-shipping minimum, the original shipping cost is deducted from the refund."
+  },
+  {
+    "id": "returns-damaged-or-wrong-item",
+    "topic": "returns",
+    "content": "If an item arrives damaged, defective, or incorrect, contact Glow Goals within 14 days with the order number, a short description of the issue, and photos of the item, its packaging, and the shipping label. Glow Goals will arrange a replacement or refund. Minor cosmetic damage to outer packaging, like creases, does not qualify for a refund."
+  },
+  {
+    "id": "returns-delivery-address-issues",
+    "topic": "returns",
+    "content": "If a parcel is returned to Glow Goals because of an incomplete/incorrect address, because it was uncollected or rejected at delivery, or because the customer refused to pay import duties, a refund will be issued minus the original shipping cost."
+  },
+  {
+    "id": "about-brand",
+    "topic": "about",
+    "content": "Glow Goals is a small team based in London specialising in authentic Korean skincare (K-Beauty), sourcing directly from brands including COSRX, Anua, Beauty of Joseon, Laneige, Mixsoon, Purito SEOUL, Medicube, SKIN1004, haruharu wonder, SOME BY MI, AXIS-Y, ROUND LAB, Dr. Althea, and Tocobo. Every product sold is genuine, sourced directly — never counterfeit or grey-market stock."
+  },
+  {
+    "id": "about-perks",
+    "topic": "about",
+    "content": "Every Glow Goals order includes a free mini gift and free K-Beauty stickers. UK delivery is free on orders over £25, and most products are priced between £13 and £24."
+  },
+  {
+    "id": "about-contact",
+    "topic": "about",
+    "content": "Customers can reach Glow Goals through the Contact page on the website, or by emailing info@glowgoals.co.uk."
+  }
+]

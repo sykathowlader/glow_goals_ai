@@ -11,8 +11,8 @@ current status of every milestone.
 
 ## Status
 
-🚧 **Milestone 3 of 8 — Product recommendations grounded in the real Shopify catalog.** No
-knowledge base, intent routing, or frontend yet.
+🚧 **Milestone 4 of 8 — Product recommendations and store knowledge (shipping/returns/FAQ), both
+grounded in real data.** No intent routing or frontend yet.
 
 ## Architecture (target, built incrementally)
 
@@ -27,9 +27,13 @@ AWS API Gateway + Lambda directly — no web framework in between)
 AI Orchestration Layer
    │
    ├── Gemini (LLM, behind a swappable provider interface)
-   ├── Tools: search_products, search_knowledge, ... (Shopify Admin API + local knowledge base)
-   └── Simple RAG over a small skincare knowledge base (ingredients, routines, FAQ)
+   ├── search_products — real Shopify Admin API catalog search
+   └── search_knowledge — simple RAG over real store facts (shipping, returns, brand)
 ```
+
+General skincare education questions (e.g. "what is niacinamide?") are answered by Gemini
+directly, with no tool involved — the model already knows this well; see `PROJECT_LOG.md`'s
+"RAG for store knowledge only" decision.
 
 Design principles carried over from the original architecture spec:
 
@@ -58,7 +62,10 @@ glow_goals_ai/
     │   ├── base.py            — the AIProvider interface every LLM provider implements
     │   └── gemini_provider.py — Gemini implementation, including the tool-calling loop
     ├── shopify_client.py      — OAuth token exchange + real Shopify product search
-    ├── tools.py               — the search_products tool definition + dispatcher
+    ├── knowledge/
+    │   └── store_info.json    — real shipping/returns/brand facts, as retrievable chunks
+    ├── knowledge_base.py      — embeds and searches store_info.json (simple RAG, no vector DB)
+    ├── tools.py               — search_products + search_knowledge tool definitions + dispatcher
     ├── requirements.txt
     └── .env.example           — template for local secrets (Gemini + Shopify credentials)
 ```
